@@ -45,7 +45,11 @@ class Route {
     }
 
     static public function error404() {
-        exit('404');
+        //TODO нормальная реализация
+        http_response_code(404);
+        $view = new View();
+        $view->render('error_404_view');
+        exit();
     }
 
 }
