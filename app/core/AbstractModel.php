@@ -2,6 +2,6 @@
 
 namespace core;
 
-abstract class AbastractModel {
+abstract class AbstractModel {
    
 }
