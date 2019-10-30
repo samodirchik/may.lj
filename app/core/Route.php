@@ -3,11 +3,10 @@
 namespace core;
 
 class Route {
-    
-    
-/**
- * routing /controller/action
- */
+
+    /**
+     * routing /controller/action
+     */
     static public function init() {
         $controllerName = 'main'; //это значение останется в переменной если не произойдет перезапись
         $actionName = 'index'; //это значение останется в переменной если не произойдет перезапись
@@ -50,6 +49,10 @@ class Route {
         $view = new View();
         $view->render('error_404_view');
         exit();
+    }
+
+    static public function redirect(string $url) {
+        header('Location:'.$url);
     }
 
 }
