@@ -20,7 +20,6 @@ class AuthModel extends AbstractModel {
         }
     }
 
-    
     /**
      * add user to db
      * 
@@ -32,6 +31,18 @@ class AuthModel extends AbstractModel {
         $this->db->query($query);
         if ($this->db->errno) {
             die($this->db->error);
+        }
+    }
+
+    public function authenticationUser(array $user) {
+        $query = "select * from users where login = '{$user['login']}';";
+        $result = $this->db->query($query);
+        if ($result) {
+            $user = $result->fetch_object();
+            $_SESSION['user'] = $user;
+            return true;
+        } else {
+            return false;
         }
     }
 
