@@ -48,6 +48,9 @@ class Route {
         $controller->$actionName();
     }
 
+    /**
+     * create http status 404
+     */
     static public function error404() {
 
         //TODO нормальная реализация
@@ -76,6 +79,11 @@ class Route {
         exit();
     }
 
+    /**
+     * redirect to specified url
+     * 
+     * @param string $url
+     */
     static public function redirect(string $url) {
         header('Location:' . $url);
     }
