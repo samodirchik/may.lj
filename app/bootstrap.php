@@ -1,6 +1,6 @@
 <?php
 
-_session_start();
+session_start();
 
 /**
  * 
