@@ -45,6 +45,24 @@ class Route {
 
     static public function error404() {
         //TODO нормальная реализация
+        function userValidate($user) {
+    $errors = [];
+    if (strlen($user['login']) < 6) {
+        $errors[] = ('Too short login value');
+    }
+    if ($user['pass'] !== $user['pass_conf']) {
+        $errors[] = 'Password do not match';
+    } else if (strlen($user['pass']) < 6) {
+        $errors[] = 'Too short password value';
+    }
+    if (empty($user['email'])) {
+        $errors[] = 'Email is required field';
+    }
+    if (!filter_var($user['email'], FILTER_VALIDATE_EMAIL)) {
+        $errors[] = 'Incorrect email value';
+    }
+    return $errors;
+        }
         http_response_code(404);
         $view = new View();
         $view->render('error_404_view');
