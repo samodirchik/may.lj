@@ -1,4 +1,4 @@
-<form action="<?= url('/auth/login')?>" method="post">
+<form action="<?= url('/auth/news')?>" method="post">
     <label>Title:
         <input type="text" name="title" required/>
     </label>
