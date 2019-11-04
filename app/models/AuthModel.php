@@ -62,21 +62,5 @@ class AuthModel extends AbstractModel {
         }
     }
 
-    public static function haveAuthNews() {
-        //return !empty($_SESSION['post']);
-        if (empty($_SESSION['post'])) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public static function getAuthNews() {
-        if (self::haveAuthNews()) {
-            return $_SESSION['post'];
-        } else {
-            return false;
-        }
-    }
-
+   
 }
