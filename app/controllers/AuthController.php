@@ -9,6 +9,11 @@ use models\AuthModel;
 
 class AuthController extends AbstractController {
 
+    public function __construct() {
+        parent::__construct();
+        $this->_modelClass = AuthModel::class;
+    }
+
     public function index() {
         if (AuthModel::haveAuthUser()) {
             Route::redirect(url('/'));
@@ -43,18 +48,6 @@ class AuthController extends AbstractController {
     public function logout() {
         session_destroy();
         Route::redirect(url('/'));
-    }
-
-    /**
-     * create and return model object
-     * 
-     * @return AuthModel
-     */
-    protected function _getModel() {
-        if (!$this->model) {
-            $this->model = new AuthModel();
-        }
-        return $this->model;
     }
 
     /**

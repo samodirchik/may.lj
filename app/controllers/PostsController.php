@@ -6,6 +6,11 @@ use core\AbstractController;
 use models\PostsModel;
 
 class PostsController extends AbstractController {
+    
+    public function __construct() {
+        parent::__construct();
+        $this->_modelClass = PostsModel::class;
+    }
 
     public function index() {
         $this->view->posts = $this->_getModel()->all();
@@ -34,5 +39,4 @@ class PostsController extends AbstractController {
         }
         return $this->model;
     }
-
 }
