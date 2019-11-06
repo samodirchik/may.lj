@@ -11,7 +11,7 @@ class ApiController extends AbstractController {
     }
 
     public function getauthors() {
-        echo 'authors will be here soon';
+       
     }
 
 }
